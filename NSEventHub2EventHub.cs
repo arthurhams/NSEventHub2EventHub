@@ -18,14 +18,14 @@ public class NSEventHub2EventHub
         _logger = logger;
     }
 
-    [Function("NSEventHub2EventHubFunction")]
+    [Function(nameof(EventHubFunction))]
     [FixedDelayRetry(5, "00:00:10")]
     public string EventHubFunction(
         [EventHubTrigger("%EventHubIngestName%", Connection = "EventHubIngestConnectionString")] string[] input,
         FunctionContext context)
     {
 
-        try 
+        try
         {
             // Get EventHub connection string from environment variables
             var connectionString = Environment.GetEnvironmentVariable("EventHubProcessConnectionString__fullyQualifiedNamespace");
