@@ -45,7 +45,7 @@ public class NSEventHub2EventHub
                 EventDataBatch eventBatch = producerClient.CreateBatchAsync().Result;
                 foreach (var line in s.Split(';'))
                 {
-                    eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes($"Event {i}")));
+                    eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes(line)));
 
                 }
                 producerClient.SendAsync(eventBatch);
