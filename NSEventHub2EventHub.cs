@@ -26,7 +26,7 @@ public class NSEventHub2EventHub
         FunctionContext context)
     {
 
-        try
+        try 
         {
             // Get EventHub connection string from environment variables
             var connectionString = Environment.GetEnvironmentVariable("EventHubProcessConnectionString__fullyQualifiedNamespace");
