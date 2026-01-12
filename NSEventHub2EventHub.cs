@@ -29,8 +29,8 @@ public class NSEventHub2EventHub
         try
         {
             // Get EventHub connection string from environment variables
-            var connectionString = Environment.GetEnvironmentVariable("EventHubConnectionString__fullyQualifiedNamespace");
-            var eventHubName = Environment.GetEnvironmentVariable("EventHubName");
+            var connectionString = Environment.GetEnvironmentVariable("EventHubProcessConnectionString__fullyQualifiedNamespace");
+            var eventHubName = Environment.GetEnvironmentVariable("EventHubProcessName");
 
             if (string.IsNullOrEmpty(connectionString) || string.IsNullOrEmpty(eventHubName))
             {
@@ -60,7 +60,7 @@ public class NSEventHub2EventHub
             _logger.LogError($"Error sending message to EventHub: {ex.Message}");
             return StatusCodes.Status500InternalServerError.ToString();
         }
-        
+
     }
 
     //function that create a string with the size of the give parameter in kb
