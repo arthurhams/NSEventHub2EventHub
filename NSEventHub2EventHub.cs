@@ -21,7 +21,7 @@ public class NSEventHub2EventHub
     [Function("NSEventHub2EventHubFunction")]
     [FixedDelayRetry(5, "00:00:10")]
     public string EventHubFunction(
-        [EventHubTrigger("EventHubIngest", Connection = "EventHubIngestConnectionString")] string[] input,
+        [EventHubTrigger("%EventHubIngestName%", Connection = "EventHubIngestConnectionString")] string[] input,
         FunctionContext context)
     {
 
